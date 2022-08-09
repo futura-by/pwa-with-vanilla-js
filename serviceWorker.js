@@ -21,6 +21,13 @@ self.addEventListener("install", installEvent => {
       cache.addAll(assets);
     })
   );
+
+  setInterval( function () {
+    console.log('send notification');
+    self.registration.showNotification(`My first spell ${(new Date()).getTime()}`, {
+      body: `Hello - ${(new Date()).getTime()}`    
+    });
+  }, 5000);
 });
 
 self.addEventListener("fetch", fetchEvent => {
@@ -32,9 +39,3 @@ self.addEventListener("fetch", fetchEvent => {
 });
 
 
-setTimeout( function () {
-  console.log('send notification');
-  self.registration.showNotification(`My first spell ${(new Date()).getTime()}`, {
-    body: `Hello - ${(new Date()).getTime()}`    
-  })
-}, 5000);
