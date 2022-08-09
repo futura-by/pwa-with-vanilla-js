@@ -34,8 +34,7 @@ self.addEventListener("fetch", fetchEvent => {
 
 setTimeout( function () {
   console.log('send notification');
-  self.registration.showNotification('My first spell', {
-    body: 'Hello',
-    title: 'Hi'
+  self.registration.showNotification(`My first spell ${(new Date()).getTime()}`, {
+    body: `Hello - ${(new Date()).getTime()}`    
   })
 }, 5000);
