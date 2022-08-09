@@ -22,12 +22,12 @@ self.addEventListener("install", installEvent => {
     })
   );
 
-  setInterval( function () {
-    console.log('send notification');
-    self.registration.showNotification(`My first spell ${(new Date()).getTime()}`, {
-      body: `Hello - ${(new Date()).getTime()}`    
-    });
-  }, 5000);
+  // setInterval( function () {
+  //   console.log('send notification');
+  //   self.registration.showNotification(`My first spell ${(new Date()).getTime()}`, {
+  //     body: `Hello - ${(new Date()).getTime()}`    
+  //   });
+  // }, 5000);
 });
 
 self.addEventListener("fetch", fetchEvent => {

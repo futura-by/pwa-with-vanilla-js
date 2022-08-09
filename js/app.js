@@ -72,9 +72,9 @@ Notification.requestPermission(function (result) {
   }
 });
 
-navigator.serviceWorker.ready.then((sw) => {
-  console.log('ready');
-  sw.showNotification(`My first spell`, {
-    body: `Hello - `,
-  });
-});
+// navigator.serviceWorker.ready.then((sw) => {
+//   console.log('ready');
+//   sw.showNotification(`My first spell`, {
+//     body: `Hello - `,
+//   });
+// });
