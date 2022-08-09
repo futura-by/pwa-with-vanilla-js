@@ -1,4 +1,4 @@
-const staticDevCoffee = "dev-coffee-site-v1";
+const staticDevCoffee = "dev-coffee-site-v3";
 const assets = [
   "/",
   "/index.html",
@@ -25,8 +25,17 @@ self.addEventListener("install", installEvent => {
 
 self.addEventListener("fetch", fetchEvent => {
   fetchEvent.respondWith(
-    caches.match(fetchEvent.request).then(res => {
+    caches.open(staticDevCoffee).then(cache => cache.match(fetchEvent.request)).then(res => {
       return res || fetch(fetchEvent.request);
     })
   );
 });
+
+
+setTimeout( function () {
+  console.log('send notification');
+  self.registration.showNotification('My first spell', {
+    body: 'Hello',
+    title: 'Hi'
+  })
+}, 5000);

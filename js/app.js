@@ -62,3 +62,13 @@ if ("serviceWorker" in navigator) {
       .catch(err => console.log("service worker not registered", err));
   });
 }
+
+
+Notification.requestPermission(function(result) {
+  console.log("User choice", result);
+  if (result !== "granted") {
+    console.log("No notification permission granted!");
+  // } else {
+  //   configurePushSub();// Write your custom function that pushes your message
+  }
+});
