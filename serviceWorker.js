@@ -22,12 +22,29 @@ self.addEventListener("install", installEvent => {
     })
   );
 
-  // setInterval( function () {
-  //   console.log('send notification');
-  //   self.registration.showNotification(`My first spell ${(new Date()).getTime()}`, {
-  //     body: `Hello - ${(new Date()).getTime()}`    
-  //   });
-  // }, 5000);
+  setTimeout( function () {
+    console.log('send notification');
+    self.registration.showNotification(
+
+      'Hello', {
+        dir: 'ltr',
+        actions: [
+                    {
+                        action: "confirm",
+                        title: "Okay",
+                        icon: "images/icons/icon-96x96.png",
+                    },
+                    {
+                        action: "cancel",
+                        title: "Cancel",
+                        icon: "images/icons/icon-96x96.png",
+                    },
+                ],
+        vibrate: [200, 100, 200, 100, 200, 100, 200],
+    }
+
+    );
+  }, 5000);
 });
 
 self.addEventListener("fetch", fetchEvent => {
